@@ -1,18 +1,23 @@
 #include "holberton.h"
 
 /**
- * puts2 - Prints one char out of two of a string.
- * @str: The string containing characters.
+ * puts2 - prints only even
+ *
+ * @str: string to reverse
  */
+
 void puts2(char *str)
 {
-	int i, len = 0;
+	int i;
+	int len;
 
-	while (str[i++])
-		len++;
+	for (len =  0; str[len] != '\0'; len++)
+	{}
 
-	for (i = 0; i < len; i += 2)
-		_putchar(str[i]);
-
+	for (i = 0; i < len; i++)
+	{
+		if (i % 2 == 0)
+			_putchar(str[i]);
+	}
 	_putchar('\n');
 }
