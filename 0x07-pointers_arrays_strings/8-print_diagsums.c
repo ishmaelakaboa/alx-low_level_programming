@@ -1,29 +1,27 @@
-#include "holberton.h"
 #include <stdio.h>
 
 /**
- * print_diagsums - prints the sums of diagonals .
- * @a: pointer to an array
- * @size: size of the matrix
- *
- * Return: void
+ * print_diagsums - "Adds numbers in a diagonal"
+ * @a: array containing characters
+ * @size: Size of array levels
  */
-
 void print_diagsums(int *a, int size)
 {
-	int i, j;
-	int c = 0;
-	int d = 0;
+	int i;
+	int sumR;
+	int sumL;
 
-	for (i = 0; i < size; i++)
+	sumR = 0;
+	sumL = 0;
+	for (i = 0; i < (size * size);)
 	{
-		c = c + *(a + i * sizeof(int));
+		sumR = sumR + a[i];
+		i = i + size + 1;
 	}
-
-	for (j = 0; j < size; j++)
-
+	for (i = 0; i < (size * size) - size;)
 	{
-		d = d + *(a + (size * j) + (size - j - 1));
+		i = i + size - 1;
+		sumL = sumL + a[i];
 	}
-	printf("%d, %d\n", c, d);
+	printf("%d, %d\n", sumR, sumL);
 }
