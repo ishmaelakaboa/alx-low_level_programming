@@ -1,32 +1,24 @@
-#include "holberton.h"
 #include <stdlib.h>
-
 /**
- * create_array - a program that creates a dynamic memory allocation
- * filled with a specific character c .
- * @size : size of an array.
- * @c: character.
- * Return: pointer to the Array or NULL if it fails.
+ * create_array - Creates space in memory for an array
+ * @size: the size of the array
+ * @c: A character to initilize the array
+ * Return: A pointer to the space allocated
  */
 
 char *create_array(unsigned int size, char c)
 {
-char *pointer;
-unsigned int i;
+	unsigned int i;
+	char *heap_array;
 
-if (size == 0)
-	return (NULL);
-pointer = malloc(sizeof(char) * size);
-/*
- * Allocating a specific nb of bytes on the memory
- * and returning a pointer to the allocated memory
- */
-if (pointer == NULL)
-	return (NULL);
-else
-{
+	if (size == 0)
+		return (NULL);
+	heap_array = malloc(size);
+	if (heap_array == NULL)
+		return (NULL);
 	for (i = 0; i < size; i++)
-		pointer[i] = c;
-		return (pointer);
-}
+	{
+		heap_array[i] = c;
+	}
+	return (heap_array);
 }
